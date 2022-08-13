@@ -22,72 +22,16 @@ class BahanbakuTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'bahanbaku_name' => 'Kertas',
-                'jmlh' => 1,
-                'satuan' => 'rim',
-                'price' => 50000,
+                'bb_name1' => 'Milano',
+                'tgl_belanja' => '2022-08-12',
+                'nota' => '.jpg',
+                'jmlh1' => 2,
+                'total_price' => 400000,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-            ),
-            1 => 
-            array (
-                'id' => 2,
-                'bahanbaku_name' => 'tinta',
-                'jmlh' => 2,
-                'satuan' => 'botol',
-                'price' => 50000,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            2 => 
-            array (
-                'id' => 3,
-                'bahanbaku_name' => 'kain',
-                'jmlh' => 1,
-                'satuan' => 'roll',
-                'price' => 100000,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            3 => 
-            array (
-                'id' => 4,
-                'bahanbaku_name' => 'tinta hitam',
-                'jmlh' => 1,
-                'satuan' => 'botol',
-                'price' => 20000,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            4 => 
-            array (
-                'id' => 5,
-                'bahanbaku_name' => 'tinta merah',
-                'jmlh' => 2,
-                'satuan' => 'botol',
-                'price' => 50000,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            5 => 
-            array (
-                'id' => 6,
-                'bahanbaku_name' => 'Kertas buram',
-                'jmlh' => 2,
-                'satuan' => 'rim',
-                'price' => 30000,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            6 => 
-            array (
-                'id' => 7,
-                'bahanbaku_name' => 'Kertas buram',
-                'jmlh' => 2,
-                'satuan' => 'rim',
-                'price' => 30000,
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'order_no_po' => 1,
+                'status_bb' => NULL,
+                'invoice_no_inv' => 1,
             ),
         ));
         

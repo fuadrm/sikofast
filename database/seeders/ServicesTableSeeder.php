@@ -23,7 +23,7 @@ class ServicesTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'service_name' => 'Print Press',
-                'price' => 50000,
+                'price_service' => 50000,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
@@ -31,7 +31,7 @@ class ServicesTableSeeder extends Seeder
             array (
                 'id' => 2,
                 'service_name' => 'Full Order',
-                'price' => 80000,
+                'price_service' => 80000,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),

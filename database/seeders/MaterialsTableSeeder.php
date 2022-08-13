@@ -23,15 +23,15 @@ class MaterialsTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'material_name' => 'Milano',
-                'price' => 50000,
+                'price_material' => 50000,
                 'created_at' => NULL,
-                'updated_at' => '2022-07-19 13:43:05',
+                'updated_at' => NULL,
             ),
             1 => 
             array (
                 'id' => 2,
                 'material_name' => 'Jersey',
-                'price' => 60000,
+                'price_material' => 60000,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),

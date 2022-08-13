@@ -1,0 +1,14 @@
+php artisan iseed bahanbaku,detail_orders_szs,detail_orders_szl,invoices,materials,migrations,orders,personal_access_tokens,services,users --force
+
+susun tabel
+
+users
+materials
+services
+orders
+detail_orders_szs
+detail_orders_szl
+invoices
+bahanbaku
+migrations
+personal_access_tokens
