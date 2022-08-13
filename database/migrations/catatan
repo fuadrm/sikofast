@@ -1,0 +1,3 @@
+Schema::table('transactions', function(Blueprint $table) {
+            $table->text('rejected_by')->nullable();
+        });
