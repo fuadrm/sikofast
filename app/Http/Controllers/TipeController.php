@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\MOdels\Tipe;
+use App\Models\Tipe;
 
 class TipeController extends Controller
 {
