@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\MOdels\Bahan;
-use App\MOdels\Tipe;
+use App\Models\Bahan;
+use App\Models\Tipe;
 use App\Models\Pemesanan;
 use App\Models\Pembayaran;
 use Carbon\Carbon;
