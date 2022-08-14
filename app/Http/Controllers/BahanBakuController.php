@@ -80,7 +80,7 @@ class BahanBakuController extends Controller
         // $invoice = Pembayaran::where('status', '1')->get();
         $invoice = Pembayaran::all();
         $order = Pemesanan::all();
-        if(in_array(auth()->user()->role,[1,2,3])){
+        if(in_array(auth()->user()->role,[1,2,3,4])){
 
         
 

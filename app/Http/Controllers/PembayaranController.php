@@ -52,7 +52,7 @@ class PembayaranController extends Controller
     public function index(Request $request)
     {
         
-        if(in_array(auth()->user()->role,[1,2,3])){
+        if(in_array(auth()->user()->role,[1,2,3,4])){
 
         if($request->has('search')){
         return view('/pembayaran/pembayaran', [
@@ -81,11 +81,11 @@ class PembayaranController extends Controller
     public function lunas()
     {
         
-        if(in_array(auth()->user()->role,[1,2,3])){
+        if(in_array(auth()->user()->role,[1,2,3,4])){
             $invoice =  Pembayaran::where('status_inv','1')->orderBy('id','DESC')->paginate(5)->withQueryString();
             
             
-            return view('/pembayaran/lunas', [
+            return view('pembayaran/lunas', [
                 "title" => "Data Pembayaran Lunas",
                 // 'invoice' => Pembayaran::orderBy('id','DESC')->get(),
                 
@@ -102,7 +102,7 @@ class PembayaranController extends Controller
     public function dp()
     {
         
-        if(in_array(auth()->user()->role,[1,2,3])){
+        if(in_array(auth()->user()->role,[1,2,3,4])){
             
             return view('/pembayaran/dp', [
                 "title" => "Data Pembayaran Down Payment",

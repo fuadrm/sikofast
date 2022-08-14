@@ -51,7 +51,7 @@ class PemesananController extends Controller
 
     public function index(Request $request)
     {
-        if(in_array(auth()->user()->role,[1,2,3])){
+        if(in_array(auth()->user()->role,[1,2,3,4])){
 
             if($request->has('search')){
             return view('/pemesanan/pemesanan', [
