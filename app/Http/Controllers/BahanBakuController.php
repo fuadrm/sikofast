@@ -18,7 +18,7 @@ class BahanBakuController extends Controller
     // }
     public function generateExcel(Request $request) {
 
-        $bahanbaku = BahanBaku::where('status', '1')->get();
+        $bahanbaku = BahanBaku::where('status_bb', '1')->get();
 
         $reader = new ReaderXlsx();
         $spreadsheet = $reader->load(public_path('template/genExcel/bahanbaku.xlsx'));
