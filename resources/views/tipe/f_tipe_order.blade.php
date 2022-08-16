@@ -11,7 +11,7 @@
             <!-- SELECT2 EXAMPLE -->
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Tipe Order</b></h3>
+                    <h3 class="card-title"><b>Tipe Jasa Servis</b></h3>
 
                     {{-- <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -30,7 +30,7 @@
                                     <div class="card-body">
 
                                         <div class="form-group">
-                                            <label for="">Tipe Servis</label>
+                                            <label for="">Tipe Jasa Servis</label>
                                             <input name="service_name" class="form-control"
                                                 value="{{ old('service_name') }}"id="">
                                             <div class="text-danger">

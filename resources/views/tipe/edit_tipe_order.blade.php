@@ -12,7 +12,7 @@
             <!-- SELECT2 EXAMPLE -->
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Tipe Order</b></h3>
+                    <h3 class="card-title"><b>Edit Tipe Jasa Servis</b></h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -35,29 +35,8 @@
                                 <div class="form-group">
 
                                     <div class="card-body">
-
                                         <div class="form-group">
-                                            <label for="">Harga</label>
-                                            <input name="price_service" class="form-control"
-                                                value="{{ old('price_service', $tipe->price_service) }}"id="">
-                                            <div class="text-danger">
-                                                @error('price_service')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.card-body -->
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="">Tipe Servis</label>
+                                            <label for="">Tipe Jasa Servis</label>
                                             <input name="service_name" class="form-control"
                                                 value="{{ old('service_name', $tipe->service_name) }}" id="">
                                             <div class="text-danger">
@@ -74,6 +53,29 @@
                             </div>
 
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <div class="card-body">
+
+                                    <div class="form-group">
+                                        <label for="">Harga</label>
+                                        <input name="price_service" class="form-control"
+                                            value="{{ old('price_service', $tipe->price_service) }}"id="">
+                                        <div class="text-danger">
+                                            @error('price_service')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                        <!-- /.col -->
+
                         <!-- /.col -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary float-right">Submit</button>

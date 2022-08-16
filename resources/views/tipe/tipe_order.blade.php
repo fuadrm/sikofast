@@ -44,7 +44,7 @@
                                 <tr>
                                     <th>No</th>
                                     {{-- <th>Kode Tipe Order</th> --}}
-                                    <th>Tipe Order</th>
+                                    <th>Tipe Servis</th>
                                     <th>Harga</th>
                                     <th>Action</th>
                                 </tr>

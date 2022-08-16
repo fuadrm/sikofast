@@ -99,7 +99,7 @@
                         class="nav-link {{ Request::is('bahanbaku/pemenuhan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Pemenuhan Bahan Baku
+                            Pemenuhan Bahan
                         </p>
                     </a>
                 </li>
@@ -116,7 +116,7 @@
                 </li>
             @endif
 
-            @if (in_array(auth()->user()->role, [1]))
+            {{-- @if (in_array(auth()->user()->role, [1]))
                 <li class="nav-item has-treeview">
                     <a href="/laporan" class="nav-link {{ Request::is('laporan') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-print"></i>
@@ -124,6 +124,48 @@
                             Laporan
                         </p>
                     </a>
+                </li>
+            @endif --}}
+
+            @if (in_array(auth()->user()->role, [1]))
+                <li class="nav-item has-treeview">
+
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-print"></i>
+                        <p>
+                            Laporan
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        @if (in_array(auth()->user()->role, [1]))
+                            <li class="nav-item">
+                                <a href="/pemesanan/generateExcel" class="nav-link">
+                                    <i class="far nav-icon"></i>
+                                    <p>Laporan Pemesanan</p>
+                                </a>
+                            </li>
+                        @endif
+                        @if (in_array(auth()->user()->role, [1]))
+                            <li class="nav-item">
+                                <a href="/bahanbaku/generateExcel" class="nav-link">
+                                    <i class="far nav-icon"></i>
+                                    <p>Laporan Bahan</p>
+                                </a>
+                            </li>
+                        @endif
+                        @if (in_array(auth()->user()->role, [1]))
+                            <li class="nav-item">
+                                <a href="/pembayaran/generateExcel" class="nav-link">
+                                    <i class="far nav-icon"></i>
+                                    <p>Laporan Pembayaran</p>
+                                </a>
+                            </li>
+                        @endif
+
+                    </ul>
+
                 </li>
             @endif
 

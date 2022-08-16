@@ -25,7 +25,7 @@
 
                     <form class="form-inline ml-3" action="/bahanbaku/pemenuhan">
                         <div class="input-group input-group-sm float-lg-left">
-                            <input class="form-control form-control-navbar" type="search" placeholder="no.po..no.nota"
+                            <input class="form-control form-control-navbar" type="search" placeholder="no.nota"
                                 name="search" value="{{ request('search') }}">
                             <div class="input-group-append">
                                 <button class="btn btn-navbar" type="submit">

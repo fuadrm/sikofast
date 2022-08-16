@@ -29,7 +29,7 @@ class TipeController extends Controller
         }
 
         }else{
-            return redirect('bahanbaku');
+            return redirect('tipe_order');
         }
     }
     
@@ -37,10 +37,10 @@ class TipeController extends Controller
     {
         if(in_array(auth()->user()->role,[1])){
         return view('/tipe/f_tipe_order', [
-            "title" => "Input Tipe Servis"
+            "title" => "Input Tipe Jasa Servis"
         ]);
         }else{
-            return redirect('bahanbaku');
+            return redirect('tipe_order');
         }
     }
 
@@ -72,11 +72,11 @@ class TipeController extends Controller
         $tipe = Tipe::where('id',$id)->first();
         if(in_array(auth()->user()->role,[1])){
         return view('/tipe/edit_tipe_order', [
-            "title" => "Edit Tipe Servis",
+            "title" => "Edit Tipe Jasa Servis",
             'tipe' => $tipe,
         ]);
         }else{
-            return redirect('bahanbaku');
+            return redirect('tipe_order');
         }
     }
 
@@ -109,7 +109,7 @@ class TipeController extends Controller
         if(in_array(auth()->user()->role,[1])){
         return redirect()->route('tipe_order')->with('pesan','Data Berhasil diHapus');
         }else{
-            return redirect('bahanbaku');
+            return redirect('tipe_order');
         }
     }
 }

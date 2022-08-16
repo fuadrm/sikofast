@@ -37,7 +37,7 @@ class BahanBakuController extends Controller
             $index++;
             $column++;
         }
-        $fileName = 'Export Data Pemenuhan BahanBaku - Semua';
+        $fileName = 'Export Data Catatan Pemenuhan BahanBaku - Semua';
         ob_end_clean();
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename='.$fileName.'.xlsx');
@@ -86,16 +86,16 @@ class BahanBakuController extends Controller
 
         if($request->has('search')){
         return view('/bahanbaku/index', [
-            "title" => "Pemenuhan Bahan Baku",
+            "title" => "Pemenuhan Bahan Pelanggan",
             'invoice' => Pembayaran::where('no_inv', 'like', '%' . $request->search. '%')
-            ->orWhere('no_po', 'like', '%' . $request->search. '%')
             ->paginate(5)->withQueryString()
+            // ->orWhere('order_no_po', 'like', '%' . $request->search. '%')
             // 'pembayaran' => Pembayaran::all()
             
         ]);
         }else{
             return view('/bahanbaku/index', [
-                "title" => "Pemenuhan Bahan Baku",
+                "title" => "Pemenuhan Bahan Pelanggan",
                 'invoice' => Pembayaran::paginate(5)
                 // 'pembayaran' => Pembayaran::all()
                 
@@ -133,7 +133,7 @@ class BahanBakuController extends Controller
         $invoice = Pembayaran::all();
         if(in_array(auth()->user()->role,[1,3])){
         return view('/bahanbaku/f_bahanbaku', [
-            "title" => "Input Bahan Baku",
+            "title" => "Input Pemenuhan Bahan",
             'order' => $order,
             'invoice' => $invoice,
             'no_po' => Request()->no_po,
@@ -191,7 +191,7 @@ class BahanBakuController extends Controller
         $bahanbaku = BahanBaku::where('id',$id)->first();
         if(in_array(auth()->user()->role,[1,3])){
         return view('/bahanbaku/edit_bahanbaku', [
-            "title" => "Edit Bahan Baku",
+            "title" => "Edit Pemenuhan Bahan",
             'bahanbaku' => $bahanbaku,
             'order' => $order,
             
@@ -232,7 +232,7 @@ class BahanBakuController extends Controller
         $bahanbaku = BahanBaku::where('id',$id)->first();
         if(in_array(auth()->user()->role,[1,3])){
         return view('/bahanbaku/detail_bahanbaku', [
-            "title" => "Detail Bahan Baku",
+            "title" => "Detail Bahan ",
             'bahanbaku' => $bahanbaku,
             
         ]);
@@ -248,7 +248,7 @@ class BahanBakuController extends Controller
         // dd($bahanbaku);
         if(in_array(auth()->user()->role,[1,2,3])){
         return view('/bahanbaku/detail_pemenuhan', [
-            "title" => "Detail Pemenuhan Bahan Baku",
+            "title" => "Detail Pemenuhan Bahan ",
             'bahanbaku' => $bahanbaku,
             
         ]);
