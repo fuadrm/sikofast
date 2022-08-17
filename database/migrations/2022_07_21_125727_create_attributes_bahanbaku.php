@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('bahanbaku', function (Blueprint $table) {
             
-            $table->integer('status_bb')->nullable();
+            $table->integer('status_bb')->nullable()->default(NULL);
         });
     }
 
