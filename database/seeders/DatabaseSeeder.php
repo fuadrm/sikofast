@@ -16,14 +16,14 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(UsersTableSeeder::class);
-        $this->call(MaterialsTableSeeder::class);
-        $this->call(ServicesTableSeeder::class);
-        $this->call(OrdersTableSeeder::class);
-        $this->call(DetailOrdersSzlTableSeeder::class);
-        $this->call(DetailOrdersSzsTableSeeder::class);
-        $this->call(InvoicesTableSeeder::class);
-        $this->call(BahanbakuTableSeeder::class);
-        $this->call(MigrationsTableSeeder::class);
-        $this->call(PersonalAccessTokensTableSeeder::class);
+        // $this->call(MaterialsTableSeeder::class);
+        // $this->call(ServicesTableSeeder::class);
+        // $this->call(OrdersTableSeeder::class);
+        // $this->call(DetailOrdersSzlTableSeeder::class);
+        // $this->call(DetailOrdersSzsTableSeeder::class);
+        // $this->call(InvoicesTableSeeder::class);
+        // $this->call(BahanbakuTableSeeder::class);
+        // $this->call(MigrationsTableSeeder::class);
+        // $this->call(PersonalAccessTokensTableSeeder::class);
     }
 }

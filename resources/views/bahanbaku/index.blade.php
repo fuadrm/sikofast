@@ -71,8 +71,8 @@
                                                     <a href="/bahanbaku/add?no_po={{ $data->pemesanan->no_po }}&no_inv={{ $data->no_inv }}"
                                                         class="btn btn-sm btn-success float-lg-center">+ Bahan</a>
                                                 @endif
-                                                <a href="/bahanbaku/detail_pemenuhan/{{ $data->id }}"
-                                                    class="btn btn-sm btn-secondary"><i class="nav-icon fas fa-eye"></i></a>
+                                                {{-- <a href="/bahanbaku/detail_pemenuhan/{{ $data->id }}"
+                                                    class="btn btn-sm btn-secondary"><i class="nav-icon fas fa-eye"></i></a> --}}
                                                 {{-- <a href="/bahanbaku" class="btn btn-sm btn-warning float-lg-center">Cek</a> --}}
                                             </td>
                                         </tr>
