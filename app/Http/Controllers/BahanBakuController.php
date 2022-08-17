@@ -244,7 +244,7 @@ class BahanBakuController extends Controller
     public function detail_pemenuhan($id)
     {
         
-        $bahanbaku = BahanBaku::where('no_po',$id)->first();
+        $bahanbaku = BahanBaku::where('order_no_po',$id)->first();
         // dd($bahanbaku);
         if(in_array(auth()->user()->role,[1,2,3])){
         return view('/bahanbaku/detail_pemenuhan', [

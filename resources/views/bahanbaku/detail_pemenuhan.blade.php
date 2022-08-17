@@ -13,7 +13,7 @@
         
             <br>
             <div class="" style="text-align: center; font-size:22px">
-                <b>Bahan Baku {{$bahanbaku->status == 1 ? 'Terpenuhi':'Belum Terpenuhi'}}</b>
+                <b>Bahan Baku {{$bahanbaku->status_bb == 1 ? 'Terpenuhi':'Belum Terpenuhi'}}</b>
             </div>
             <table class="table" width="25%">
             
