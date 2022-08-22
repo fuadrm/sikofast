@@ -6,6 +6,7 @@ use App\Models\Bahan;
 use App\Models\Tipe;
 use App\Models\Pemesanan;
 use Carbon\Carbon;
+use App\Models\DetailOrderSz;
 use App\Models\DetailOrderSzs;
 use App\Models\DetailOrderSzl;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx as ReaderXlsx;
@@ -98,6 +99,7 @@ class PemesananController extends Controller
         }
         $bahan = Bahan::all();
         $tipe = Tipe::all();
+        $dosz = DetailOrderSz::all();
         $doszs = DetailOrderSzs::all();
         $doszl = DetailOrderSzl::all();
 
@@ -106,6 +108,7 @@ class PemesananController extends Controller
             "title" => "Input Formulir Pemesanan",
             'bahan' => $bahan,
             'tipe' => $tipe,
+            'dosz' => $dosz,
             'doszs' => $doszs,
             'doszl' => $doszl,
             'no_po' => $no_po
@@ -173,6 +176,17 @@ class PemesananController extends Controller
 
         $pesan = Pemesanan::create($order);
 
+        $dosz = [
+            'order_id'=>$pesan->id,
+            'sz_s'=>Request()->sz_s,
+            'sz_m'=>Request()->sz_m,
+            'sz_l'=>Request()->sz_l,
+            'sz_xl'=>Request()->sz_xl,
+            'sz_2xl'=>Request()->sz_2xl,
+            'sz_3xl'=>Request()->sz_3xl,
+            'sz_4xl'=>Request()->sz_4xl,
+        ];
+
         $doszs = [
             'order_id'=>$pesan->id,
             'szs_s'=>Request()->szs_s,
@@ -195,6 +209,7 @@ class PemesananController extends Controller
             'szl_4xl'=>Request()->szl_4xl,
         ];
 
+        DetailOrderSz::insert($dosz);
         DetailOrderSzs::insert($doszs);
         DetailOrderSzl::insert($doszl);
         return redirect()->route('pemesanan')->with('pesan','Data Berhasil diTambahkan');
@@ -206,6 +221,7 @@ class PemesananController extends Controller
         $bahan = Bahan::all();
         $tipe = Tipe::all();
         $order = Pemesanan::where('id',$id)->first();
+        $dosz = DetailOrderSz::where('order_id',$id)->first();
         $doszs = DetailOrderSzs::where('order_id',$id)->first();
         $doszl = DetailOrderSzl::where('order_id',$id)->first();
         if(in_array(auth()->user()->role,[1,2])){
@@ -215,6 +231,7 @@ class PemesananController extends Controller
             'bahan' => $bahan,
             'tipe' => $tipe,
             'order' => $order,
+            'dosz' => $dosz,
             'doszs' => $doszs,
             'doszl' => $doszl
         ]);
@@ -261,30 +278,41 @@ class PemesananController extends Controller
         $pesan = Pemesanan::where('id', $id)
             ->update($order);
 
-            $doszs = [
-                // 'order_id'=>$pesan->id,
-                'szs_s'=>Request()->szs_s,
-                'szs_m'=>Request()->szs_m,
-                'szs_l'=>Request()->szs_l,
-                'szs_xl'=>Request()->szs_xl,
-                'szs_2xl'=>Request()->szs_2xl,
-                'szs_3xl'=>Request()->szs_3xl,
-                'szs_4xl'=>Request()->szs_4xl,
-            ];
+            // $dosz = [
+            //     // 'order_id'=>$pesan->id,
+            //     'sz_s'=>Request()->sz_s,
+            //     'sz_m'=>Request()->sz_m,
+            //     'sz_l'=>Request()->sz_l,
+            //     'sz_xl'=>Request()->sz_xl,
+            //     'sz_2xl'=>Request()->sz_2xl,
+            //     'sz_3xl'=>Request()->sz_3xl,
+            //     'sz_4xl'=>Request()->sz_4xl,
+            // ];
+
+            // $doszs = [
+            //     // 'order_id'=>$pesan->id,
+            //     'szs_s'=>Request()->szs_s,
+            //     'szs_m'=>Request()->szs_m,
+            //     'szs_l'=>Request()->szs_l,
+            //     'szs_xl'=>Request()->szs_xl,
+            //     'szs_2xl'=>Request()->szs_2xl,
+            //     'szs_3xl'=>Request()->szs_3xl,
+            //     'szs_4xl'=>Request()->szs_4xl,
+            // ];
     
-            $doszl = [
-                // 'order_id'=>$pesan->id,
-                'szl_s'=>Request()->szl_s,
-                'szl_m'=>Request()->szl_m,
-                'szl_l'=>Request()->szl_l,
-                'szl_xl'=>Request()->szl_xl,
-                'szl_2xl'=>Request()->szl_2xl,
-                'szl_3xl'=>Request()->szl_3xl,
-                'szl_4xl'=>Request()->szl_4xl,
-            ];
+            // $doszl = [
+            //     // 'order_id'=>$pesan->id,
+            //     'szl_s'=>Request()->szl_s,
+            //     'szl_m'=>Request()->szl_m,
+            //     'szl_l'=>Request()->szl_l,
+            //     'szl_xl'=>Request()->szl_xl,
+            //     'szl_2xl'=>Request()->szl_2xl,
+            //     'szl_3xl'=>Request()->szl_3xl,
+            //     'szl_4xl'=>Request()->szl_4xl,
+            // ];
     
-            DetailOrderSzs::where('id', $id)
-                ->update($doszs);
+            // DetailOrderSzs::where('id', $id)
+            //     ->update($doszs);
 
         return redirect()->route('pemesanan')->with('pesan','Data Berhasil diUbah');
     }
@@ -295,6 +323,7 @@ class PemesananController extends Controller
         $bahan = Bahan::all();
         $tipe = Tipe::all();
         $order = Pemesanan::where('id',$id)->first();
+        $dosz = DetailOrderSz::where('order_id',$id)->first();
         $doszs = DetailOrderSzs::where('order_id',$id)->first();
         $doszl = DetailOrderSzl::where('order_id',$id)->first();
         return view('/pemesanan/detail_pemesanan', [
@@ -302,6 +331,7 @@ class PemesananController extends Controller
             'order' => $order,
             'bahan' => $bahan,
             'tipe' => $tipe,
+            'dosz'=> $dosz,
             'doszs' => $doszs,
             'doszl' => $doszl
         ]);

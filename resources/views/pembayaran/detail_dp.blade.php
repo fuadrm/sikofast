@@ -83,6 +83,18 @@
                                                 {{ $invoice->pemesanan->team }}<br>
                                                 {{ $invoice->pemesanan->caption }}<br>
                                                 Detail Ukuran<br>
+
+                                                {{-- Tanpa Lengan --}}
+                                                {{ @$dosz->sz_s == null ? '' : 'Size S T.Lengan : ' . @$dosz->sz_s . ' pcs,' }}&emsp;&emsp;
+                                                {{ @$dosz->sz_m == null ? '' : 'Size M T.Lengan : ' . @$dosz->sz_m . ' pcs,' }}&emsp;&emsp;
+                                                {{ @$dosz->sz_l == null ? '' : 'Size L T.Lengan : ' . @$dosz->sz_l . ' pcs,' }}<br>
+
+                                                {{ @$dosz->sz_xl == null ? '' : 'Size XL T.Lengan : ' . @$dosz->sz_xl . ' pcs,' }}&emsp;&emsp;
+                                                {{ @$dosz->sz_2xl == null ? '' : 'Size 2XL T.Lengan : ' . @$dosz->sz_2xl . ' pcs,' }}&emsp;&emsp;
+                                                {{ @$dosz->sz_3xl == null ? '' : 'Size 3XL T.Lengan : ' . @$dosz->sz_3xl . ' pcs,' }}<br>
+
+                                                {{ @$dosz->sz_4xl == null ? '' : 'Size 4XL T.Lengan : ' . @$dosz->sz_4xl . ' pcs,' }}
+
                                                 {{-- lengan pendek --}}
                                                 {{ @$doszs->szs_s == null ? '' : 'Size S Pendek : ' . @$doszs->szs_s . ' pcs,' }}&emsp;&emsp;
                                                 {{ @$doszs->szs_m == null ? '' : 'Size S Pendek : ' . @$doszs->szs_m . ' pcs,' }}&emsp;&emsp;
@@ -95,10 +107,10 @@
                                                 {{ @$doszs->szs_4xl == null ? '' : 'Size S Pendek : ' . @$doszs->szs_4xl . ' pcs,' }}
 
                                                 {{-- @if ($doszs->szs_s == null)
-                              {{@$doszs->szs_s}}
-                          @else
-                              Size S Pendek : {{@$doszs->szs_s}} pcs,&emsp;&emsp;
-                          @endif --}}
+                                                    {{@$doszs->szs_s}}
+                                                @else
+                                                    Size S Pendek : {{@$doszs->szs_s}} pcs,&emsp;&emsp;
+                                                @endif --}}
 
                                                 {{-- lengan panjang --}}
                                                 <br><br>
@@ -249,9 +261,11 @@
                                             </tr>
                                             <tr>
                                                 <td style="text-align: center; width: 50%">
-                                                    <br><br><br><strong>(_____________)</strong></td>
+                                                    <br><br><br><strong>(_____________)</strong>
+                                                </td>
                                                 <td style="text-align: center; width: 50%">
-                                                    <br><br><br><strong>(_____________)</strong></td>
+                                                    <br><br><br><strong>(_____________)</strong>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

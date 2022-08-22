@@ -110,6 +110,17 @@
             </thead>
             <tbody>
                 <tr>
+                    <th style="width: 18%">Tanpa Lengan</th>
+                    <td style="width: 10%; text-align:center">{{@$dosz->sz_s == null ? '':''.@$dosz->sz_s}}</td>
+                    <td style="width: 10%; text-align:center">{{@$dosz->sz_m == null ? '':''.@$dosz->sz_m}}</td>
+                    <td style="width: 10%; text-align:center">{{@$dosz->sz_l == null ? '':''.@$dosz->sz_l}}</td>
+                    <td style="width: 10%; text-align:center">{{@$dosz->sz_xl == null ? '':''.@$dosz->sz_xl}}</td>
+                    <td style="width: 10%; text-align:center">{{@$dosz->sz_2xl == null ? '':''.@$dosz->sz_2xl}}</td>
+                    <td style="width: 10%; text-align:center">{{@$dosz->sz_3xl == null ? '':''.@$dosz->sz_3xl}}</td>
+                    <td style="width: 10%; text-align:center">{{@$dosz->sz_4xl == null ? '':''.@$dosz->sz_4xl}}</td>
+                    <td style="width: 12%; text-align:center" rowspan="3"><br><br>{{$order->qty}}</td>
+                </tr>
+                <tr>
                     <th style="width: 18%">Lengan Pendek</th>
                     <td style="width: 10%; text-align:center">{{@$doszs->szs_s == null ? '':''.@$doszs->szs_s}}</td>
                     <td style="width: 10%; text-align:center">{{@$doszs->szs_m == null ? '':''.@$doszs->szs_m}}</td>
@@ -118,7 +129,7 @@
                     <td style="width: 10%; text-align:center">{{@$doszs->szs_2xl == null ? '':''.@$doszs->szs_2xl}}</td>
                     <td style="width: 10%; text-align:center">{{@$doszs->szs_3xl == null ? '':''.@$doszs->szs_3xl}}</td>
                     <td style="width: 10%; text-align:center">{{@$doszs->szs_4xl == null ? '':''.@$doszs->szs_4xl}}</td>
-                    <td style="width: 12%; text-align:center" rowspan="2"><br>{{$order->qty}}</td>
+                    
                 </tr>
                 <tr>
                     <th style="width: 18%">Lengan Panjang</th>

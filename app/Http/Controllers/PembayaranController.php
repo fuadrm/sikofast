@@ -8,6 +8,7 @@ use App\Models\Tipe;
 use App\Models\Pemesanan;
 use App\Models\Pembayaran;
 use Carbon\Carbon;
+use App\Models\DetailOrderSz;
 use App\Models\DetailOrderSzs;
 use App\Models\DetailOrderSzl;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx as ReaderXlsx;
@@ -203,6 +204,7 @@ class PembayaranController extends Controller
         $tipe = Tipe::all();
         $order = Pemesanan::all();
         $invoice = Pembayaran::where('id',$id)->first();
+        $dosz = DetailOrderSz::where('order_id',$id)->first();
         $doszs = DetailOrderSzs::where('order_id',$id)->first();
         $doszl = DetailOrderSzl::where('order_id',$id)->first();
         return view('/pembayaran/detail_pembayaran', [
@@ -211,6 +213,7 @@ class PembayaranController extends Controller
             'bahan' => $bahan,
             'tipe' => $tipe,
             'invoice' => $invoice,
+            'dosz' => $dosz,
             'doszs' => $doszs,
             'doszl' => $doszl
         ]);
@@ -223,6 +226,7 @@ class PembayaranController extends Controller
         $tipe = Tipe::all();
         $order = Pemesanan::all();
         $invoice = Pembayaran::where('id',$id)->first();
+        $dosz = DetailOrderSz::where('order_id',$id)->first();
         $doszs = DetailOrderSzs::where('order_id',$invoice->order_no_po)->first();
         $doszl = DetailOrderSzl::where('order_id',$invoice->order_no_po)->first();
         return view('/pembayaran/detail_lunas', [
@@ -231,6 +235,7 @@ class PembayaranController extends Controller
             'bahan' => $bahan,
             'tipe' => $tipe,
             'invoice' => $invoice,
+            'dosz' => $dosz,
             'doszs' => $doszs,
             'doszl' => $doszl
         ]);
@@ -243,6 +248,7 @@ class PembayaranController extends Controller
         $tipe = Tipe::all();
         $order = Pemesanan::all();
         $invoice = Pembayaran::where('id',$id)->first();
+        $dosz = DetailOrderSz::where('order_id',$id)->first();
         $doszs = DetailOrderSzs::where('order_id',$id)->first();
         $doszl = DetailOrderSzl::where('order_id',$id)->first();
         return view('/pembayaran/detail_dp', [
@@ -251,6 +257,7 @@ class PembayaranController extends Controller
             'bahan' => $bahan,
             'tipe' => $tipe,
             'invoice' => $invoice,
+            'dosz' => $dosz,
             'doszs' => $doszs,
             'doszl' => $doszl
         ]);

@@ -53,7 +53,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Nominal Pembayaran (Lunas)</label>
                                             <input name="price_invoice" class="form-control" id="price_invoice"
-                                                value="{{ old('price_invoice', $order->total - $invoice->down_payment) }}">
+                                                value="{{ old('price_invoice', $order->total - $invoice->down_payment) }}" readonly>
 
                                         </div>
 
