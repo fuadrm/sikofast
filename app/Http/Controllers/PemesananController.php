@@ -16,7 +16,11 @@ class PemesananController extends Controller
     public function generateExcel(Request $request) {
 
         
-        $order = Pemesanan::where('status_order','2')->get();
+        if($request->tanggal){
+            $order = Pemesanan::where('status_order','2')->whereDate('started_at','=',$request->tanggal)->get();
+        }else{
+            $order = Pemesanan::where('status_order','2')->get();
+        }
 
         $reader = new ReaderXlsx();
         $spreadsheet = $reader->load(public_path('template/genExcel/pemesanan.xlsx'));

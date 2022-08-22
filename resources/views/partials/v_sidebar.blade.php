@@ -127,7 +127,7 @@
                 </li>
             @endif --}}
 
-            @if (in_array(auth()->user()->role, [1]))
+            {{-- @if (in_array(auth()->user()->role, [1]))
                 <li class="nav-item has-treeview">
 
                     <a href="#" class="nav-link">
@@ -167,7 +167,7 @@
                     </ul>
 
                 </li>
-            @endif
+            @endif --}}
 
     </nav>
     <!-- /.sidebar-menu -->

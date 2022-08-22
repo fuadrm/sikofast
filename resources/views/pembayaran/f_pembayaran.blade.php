@@ -42,9 +42,16 @@
 
                                         </div>
                                         <div class="form-group">
+
+                                            <label for="exampleInputEmail1">Total Pembayaran</label>
+                                            <input name="" class="form-control" value="{{ 'total' }}"
+                                                id="total" readonly>
+
+                                        </div>
+                                        <div class="form-group">
                                             <label for="exampleInputEmail1">Nominal Pembayaran (DP)</label>
                                             <input name="down_payment" class="form-control"
-                                                value="{{ old('down_payment') }}" id="" placeholder="">
+                                                value="{{ old('down_payment') }}" id="down_payment" placeholder="" readonly>
 
                                         </div>
 
@@ -63,7 +70,7 @@
                                         <div class="form-group">
                                             <label>No PO</label>
                                             <select name="order_no_po" id="order_no_po"
-                                                class="form-control select2 select2-danger"
+                                                class="form-control select2 select2-danger order_no_po"
                                                 data-dropdown-css-class="select2-danger" style="width: 100%;"
                                                 value="{{ old('order_no_po') }}">
                                                 @foreach ($order as $order)
@@ -121,5 +128,38 @@
     </section>
 
 
+
+    @push('script')
+        <script>
+            // Global variable
+            const getDetailData = (id) => {
+
+                $.ajax({
+                    url: '{{ url('/pembayaran/getDetailNoPo') }}',
+                    type: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: id
+                    },
+                    error: function() {
+                        alert('Terjadi kesalahan');
+                    },
+                    success: function(data) {
+                        if (data) {
+                            $('#down_payment').val(data.data.total / 2)
+                            $('#total').val(data.data.total)
+                        }
+                    }
+                });
+            }
+
+            getDetailData($('.order_no_po').find(':selected').val())
+
+            $('.order_no_po').change(function() {
+                const optionSelected = $(this).find("option:selected");
+                getDetailData(optionSelected.val())
+            });
+        </script>
+    @endpush
 
 @endsection

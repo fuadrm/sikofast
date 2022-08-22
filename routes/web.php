@@ -67,6 +67,7 @@ Route::group(['auth'],function () {
     Route::get('/pembayaran/lunas', [PembayaranController::class, 'lunas']);
     Route::get('/pembayaran/dp', [PembayaranController::class, 'dp']);
     Route::get('/pembayaran/add', [PembayaranController::class, 'add']);
+    Route::post('/pembayaran/getDetailNoPo', [PembayaranController::class, 'getDetailNoPo']);
     Route::post('/pembayaran/insert', [PembayaranController::class, 'insert']);
     Route::get('/pembayaran/detail/{id}', [PembayaranController::class, 'detail']);
     Route::get('/pembayaran/detail_lunas/{id}', [PembayaranController::class, 'detail_lunas']);

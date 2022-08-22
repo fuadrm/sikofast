@@ -17,8 +17,13 @@ class PembayaranController extends Controller
 {
     public function generateExcel(Request $request) {
 
+        // dd($request->tanggal);
+        if($request->tanggal){
+            $invoice = Pembayaran::where('status_inv','1')->whereDate('started_at_inv','=',$request->tanggal)->get();
+        }else{
+            $invoice = Pembayaran::where('status_inv','1')->get();
+        }
         
-        $invoice = Pembayaran::where('status_inv','1')->get();
 
         $reader = new ReaderXlsx();
         $spreadsheet = $reader->load(public_path('template/genExcel/pembayaran.xlsx'));
@@ -139,19 +144,32 @@ class PembayaranController extends Controller
         $bahan = Bahan::all();
         $tipe = Tipe::all();
         $order = Pemesanan::all();
+        $invoice = Pembayaran::all();
         // $invoice = Pembayaran::where('id',$id)->first();
         if(in_array(auth()->user()->role,[1,3])){
         return view('/pembayaran/f_pembayaran', [
             "title" => "Input Nota Pembayaran",
             'order' => $order,
+            'invoice' => $invoice,
             'bahan' => $bahan,
             'tipe' => $tipe,
-            'no_inv' => $no_inv
+            'no_inv' => $no_inv,
+            // 'price_invoice' => Request()->price_invoice,
             // 'invoice' => $invoice
         ]);
         }else{
             return redirect('/pembayaran');
         }
+    }
+
+    public function getDetailNoPo(Request $request){
+        $id = $request->id;
+
+        return response()->json([
+            'status' => true,
+            'message' => "",
+            'data' => Pemesanan::where('id', $id)->first()
+        ]);
     }
 
     public function insert()
@@ -244,8 +262,8 @@ class PembayaranController extends Controller
         $title = 'Edit Nota';
         $bahan = Bahan::all();
         $tipe = Tipe::all();
-        $order = Pemesanan::all();
         $invoice = Pembayaran::where('id',$id)->first();
+        $order = Pemesanan::where('id',$invoice->order_no_po)->first();
         if(in_array(auth()->user()->role,[1,3])){
         return view('/pembayaran/edit_pembayaran', compact('title', 'bahan', 'tipe', 'order', 'invoice'));
         }else{
